@@ -25,6 +25,7 @@ vala_sources = [
 		'gradio-mpris.vala',
 		'gradio-player-toolbar.vala',
 		'gradio-radio-browser.vala',
+		'gradio-scrobbler.vala',
 		'gradio-station-provider.vala',
 		'gradio-search-provider.vala',
 		'gradio-settings.vala',
@@ -49,7 +50,7 @@ vala_args = [
 executable('gradio',
 		vala_sources,
 		resources,
-		c_args : [ '-DVERSION="' + meson.project_version() + '"', '-DGETTEXT_PACKAGE="gradio"', '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"' ],
+		c_args : [ '-DVERSION="' + meson.project_version() + '"', '-DGETTEXT_PACKAGE="gradio"', '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"', '-DGOA_API_IS_SUBJECT_TO_CHANGE' ],
 		vala_args: vala_args,
 		install : true,
-		dependencies : [glib, gobject, gio, gtk, gd, libsoup, json_glib, gstreamer, gstreamer_pbutils, sqlite3])
+		dependencies : [glib, gobject, gio, goa, gtk, gd, libsoup, json_glib, gstreamer, gstreamer_pbutils, sqlite3])

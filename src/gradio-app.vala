@@ -26,6 +26,7 @@ namespace Gradio {
 		public static AudioPlayer player;
 		public static Library library;
 		public static MPRIS mpris;
+		public static Scrobbler scrobbler;
 		public static ImageCache image_cache;
 
 		private SearchProvider search_provider;
@@ -88,6 +89,8 @@ namespace Gradio {
 				mpris.requested_quit.connect(this.quit);
 				mpris.requested_raise.connect(window.present);
 			}
+
+			scrobbler = new Scrobbler();
 		}
 
 		protected override void activate () {
